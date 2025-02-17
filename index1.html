@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery -css </title>
+    <style>
+      
+        :root {
+            --primary-color: #1e1e1e;
+            --secondary-color: #3498db;
+            --text-color: aquamarine;
+            --spacing: 20px;
+            --border-radius: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: var(--spacing);
+        }
+
+        
+        .header {
+            background-color: var(--secondary-color);
+            color: white;
+            width: 100%;
+            padding: var(--spacing);
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            border-radius: var(--border-radius);
+        }
+
+        
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: var(--spacing);
+            max-width: 1200px;
+        }
+
+        .column {
+            flex: 1;
+            min-width: 300px; 
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing);
+        }
+
+        .gallery-item {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+        }
+
+        .gallery-item1 img {
+            border-radius: 50%;
+            filter: grayscale(100%);
+        }
+
+        .gallery-item2 img {
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            filter: blur(3px);
+        }
+
+        .gallery-item3 img {
+            filter: brightness(120%) contrast(110%);
+        }
+
+        .gallery-item4 img {
+            filter: saturate(150%);
+        }
+
+        .gallery-item5 img {
+            filter: blur(2px) contrast(120%) brightness(120%);
+        }
+
+        .gallery-item6 img {
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+        }
+
+       
+        .gallery-item:hover img {
+            transform: scale(1.06);
+            filter: brightness(110%);
+        }
+
+        
+        @media (max-width: 768px) {
+            .gallery-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Photo Gallery</h1>
+        <p>Explore the beauty of Delhi through our collection of photographs</p>
+    </div>
+
+    <div class="gallery-container">
+        <!-- Column 1 -->
+        <div class="column">
+            <div class="gallery-item gallery-item1">
+                <img src="https://i.ytimg.com/vi/BUAxqsvoc6k/sddefault.jpg" alt="Red Fort">
+            </div>
+            <div class="gallery-item gallery-item2">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/c9/39/b3/humayun-s-tomb.jpg?w=900&h=500&s=1"
+                    alt="Humayun's Tomb">
+            </div>
+            <div class="gallery-item gallery-item3">
+                <img src="https://theheritageart.com/wp-content/uploads/2022/12/India-Gate-Delhi-1-1000x565.jpg"
+                    alt="India Gate">
+            </div>
+            <div class="gallery-item gallery-item4">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Jama_Masjid_-_In_the_Noon.jpg/465px-Jama_Masjid_-_In_the_Noon.jpg"
+                    alt="Jama Masjid">
+            </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="column">
+            <div class="gallery-item gallery-item5">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOjwfB2KNbo8AR3KR000IFUE5uekirt33gQQ&s"
+                    alt="Qutub Minar">
+            </div>
+            <div class="gallery-item gallery-item6">
+                <img src="https://s7ap1.scene7.com/is/image/incredibleindia/lotus-temple-delhi-1-attr-hero?qlt=82&ts=1727352198077"
+                    alt="Lotus Temple">
+            </div>
+            <div class="gallery-item">
+                <img src="https://img.jagranjosh.com/imported/images/E/Articles/Akshardham-Temple-Delhi.webp"
+                    alt="Akshardham Temple">
+            </div>
+            <div class="gallery-item">
+                <img src="https://a.travel-assets.com/findyours-php/viewfinder/images/res40/67000/67991-New-Delhi.jpg"
+                    alt="Rashtrapati Bhavan">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
